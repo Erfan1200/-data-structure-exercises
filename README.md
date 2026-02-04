@@ -3,16 +3,16 @@
 
 # ================= doubly linked list =================
 
-class dnode():
-    def __init__(self , x):
-        self.Data = x
-        self.next = None
-        self.back = None
-
-
-class dlinked_list :
-    def __init__(self):
-        self.head = None
+    class dnode():
+        def __init__(self , x):
+            self.Data = x
+            self.next = None
+            self.back = None
+    
+    
+    class dlinked_list :
+        def __init__(self):
+            self.head = None
 
     def del_after(self , x):
         if self.head is None:
@@ -55,16 +55,16 @@ class dlinked_list :
 
 ############################################################
 
-class dnode():
-    def __init__(self , x):
-        self.Data = x
-        self.next = None
-        self.back = None
-
-
-class dlinked_list :
-    def __init__(self):
-        self.head = None
+    class dnode():
+        def __init__(self , x):
+            self.Data = x
+            self.next = None
+            self.back = None
+    
+    
+    class dlinked_list :
+        def __init__(self):
+            self.head = None
 
     def ins_frist(self , x):
         a = dnode(x)
@@ -161,14 +161,14 @@ class dlinked_list :
 
 # ================= singly linked list =================
 
-class node :
-    def __init__(self , d):
+    class node :
+        def __init__(self , d):
         self.Data = d
         self.next = None
 
 
-class linked_list :
-    def __init__(self):
+    class linked_list :
+        def __init__(self):
         self.head = None
 
     def insert_frist(self , x):
@@ -219,99 +219,99 @@ class linked_list :
 
 # ================= graph =================
 
-def BFS(graph , start):
-    queue = [start]
-    visited = {start}
-    while queue:
-        vertex = queue.pop(0)
-        for ne in graph[vertex]:
-            if ne not in visited:
-                visited.add(ne)
-                queue.append(ne)
-    return visited
-
-
-def DFS(graph , start , visited):
-    visited[start] = True
-    for ne in graph[start]:
-        if not visited[ne]:
-            DFS(graph , ne , visited)
+    def BFS(graph , start):
+        queue = [start]
+        visited = {start}
+        while queue:
+            vertex = queue.pop(0)
+            for ne in graph[vertex]:
+                if ne not in visited:
+                    visited.add(ne)
+                    queue.append(ne)
+        return visited
+    
+    
+    def DFS(graph , start , visited):
+        visited[start] = True
+        for ne in graph[start]:
+            if not visited[ne]:
+                DFS(graph , ne , visited)
 
 
 # ================= sorting =================
 
-def Bubble(A):
-    for i in range(len(A)-1):
-        for j in range(len(A)-1-i):
-            if A[j] > A[j+1]:
-                A[j], A[j+1] = A[j+1] , A[j]
+    def Bubble(A):
+        for i in range(len(A)-1):
+            for j in range(len(A)-1-i):
+                if A[j] > A[j+1]:
+                    A[j], A[j+1] = A[j+1] , A[j]
 
 
 # ================= tree =================
 
-class Tree_Node :
-    def __init__(self , x):
-        self.Data = x
-        self.Lchild = None
-        self.Rchild = None
-
-
-def Count_leaves(root):
-    if root is None:
-        return 0
-    if root.Lchild is None and root.Rchild is None:
-        return 1
-    return Count_leaves(root.Lchild) + Count_leaves(root.Rchild)
-
-
-def Count_1Deg(root):
-    if root is None:
-        return 0
-    if (root.Lchild is None) ^ (root.Rchild is None):
-        return 1
-    return Count_1Deg(root.Lchild) + Count_1Deg(root.Rchild)
-
-
-def Count_2Deg (root):
-    if root is None:
-        return 0
-    if root.Lchild and root.Rchild:
-        return 1
-    return Count_2Deg(root.Lchild) + Count_2Deg(root.Rchild)
-
-
-def sum_Tree(root):
-    if root is None:
-        return 0
-    return root.Data + sum_Tree(root.Lchild) + sum_Tree(root.Rchild)
-
-
-def Count(root):
-    if root is None:
-        return 0
-    return 1 + Count(root.Lchild) + Count(root.Rchild)
-
-
-def search(root , t):
-    if root is None:
-        return False
-    if root.Data == t:
-        return True
-    return search(root.Lchild , t) or search(root.Rchild , t)
-
-
-def max_t(root):
-    if root is None:
-        return float("-inf")
-    return max(root.Data , max_t(root.Lchild) , max_t(root.Rchild))
+    class Tree_Node :
+        def __init__(self , x):
+            self.Data = x
+            self.Lchild = None
+            self.Rchild = None
+    
+    
+    def Count_leaves(root):
+        if root is None:
+            return 0
+        if root.Lchild is None and root.Rchild is None:
+            return 1
+        return Count_leaves(root.Lchild) + Count_leaves(root.Rchild)
+    
+    
+    def Count_1Deg(root):
+        if root is None:
+            return 0
+        if (root.Lchild is None) ^ (root.Rchild is None):
+            return 1
+        return Count_1Deg(root.Lchild) + Count_1Deg(root.Rchild)
+    
+    
+    def Count_2Deg (root):
+        if root is None:
+            return 0
+        if root.Lchild and root.Rchild:
+            return 1
+        return Count_2Deg(root.Lchild) + Count_2Deg(root.Rchild)
+    
+    
+    def sum_Tree(root):
+        if root is None:
+            return 0
+        return root.Data + sum_Tree(root.Lchild) + sum_Tree(root.Rchild)
+    
+    
+    def Count(root):
+        if root is None:
+            return 0
+        return 1 + Count(root.Lchild) + Count(root.Rchild)
+    
+    
+    def search(root , t):
+        if root is None:
+            return False
+        if root.Data == t:
+            return True
+        return search(root.Lchild , t) or search(root.Rchild , t)
+    
+    
+    def max_t(root):
+        if root is None:
+            return float("-inf")
+        return max(root.Data , max_t(root.Lchild) , max_t(root.Rchild))
 
 
 # ================= stack =================
 
-class stack : 
-    def __init__(self , limit = 1000):
-        self.st=[]
-        self.lim = limit
+    class stack : 
+        def __init__(self , limit = 1000):
+            self.st=[]
+            self.lim = limit
 
     def push(self , x):
         if len(self.st) >= self.lim:
@@ -339,8 +339,8 @@ class stack :
 
 # ================= fibonacci =================
 
-def fib(n):
-    if n==1 or n==2:
-        return 1
-    return fib(n-1) + fib(n-2)
+    def fib(n):
+        if n==1 or n==2:
+            return 1
+        return fib(n-1) + fib(n-2)
 
